@@ -1,0 +1,175 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d1b2a; /* Dim blue background */
+  color: #fff; /* White text for contrast */
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #162447; /* Darker dim blue for header */
+  color: #D4A857; /* Gold for header text */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-container img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.logo-container h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #D4A857; /* Gold for logo text */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
+
+nav a {
+  color: #D4A857; /* Gold for navigation links */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #D4A857; /* Lighter gold on hover */
+}
+
+/* Main Section */
+main {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+main h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #D4A857; /* Gold for headings */
+}
+
+main button {
+  background-color: #D4A857; /* Gold for buttons */
+  color: #162447; /* Dim blue for button text */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+main button:hover {
+  background-color: #D4A857; /* Lighter gold on hover */
+}
+
+/* Event Cards Grid */
+.event-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Event Card */
+.event-card {
+  background-color: #162447; /* Dim blue card background */
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.event-card h3 {
+  color: #D4A857; /* Gold for card titles */
+  margin-bottom: 0.5rem;
+}
+
+.event-card p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #ccc; /* Light gray for card details */
+}
+
+.book-event-btn {
+  background-color: #D4A857; /* Gold for buttons */
+  color: #162447; /* Dim blue for button text */
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.book-event-btn:hover {
+  background-color: #D4A857; /* Lighter gold on hover */
+}
+
+/* Footer */
+footer {
+  background-color: #162447; /* Darker dim blue for footer */
+  color: #ccc; /* Light gray for footer text */
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-top: 1rem;
+  }
+
+  header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css ">
+    <link rel="stylesheet" href="featured-events.css">
+    <title>Featured Events</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Showman House Logo" class="logo">
+            <h1>Showman House</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html">Login/Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Featured Events</h1>
+        <a href="events.html"><button>Book Custom Event</button></a> 
+        <div class="event-cards-container" id="event-cards-container"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Showman House. All rights reserved.</p>
+    </footer>
+    <script>
+        // Sample featured events data
+        const featuredEvents = [
+            {
+                EventID: "EVT001",
+                EventName: "Summer Music Festival",
+                Location: "Central Park",
+                StartDate: "2025-07-15T10:00:00Z",
+                EndDate: "2025-07-17T22:00:00Z",
+                NoOfPeople: 500,
+                CustomerID: "CMT001",
+                EventTypeID: "EVT002"
+            },
+            {
+                EventID: "EVT002",
+                EventName: "Tech Conference 2025",
+                Location: "Convention Center",
+                StartDate: "2025-08-20T09:00:00Z",
+                EndDate: "2025-08-22T18:00:00Z",
+                NoOfPeople: 300,
+                CustomerID: "CMT002",
+                EventTypeID: "EVT003"
+            },
+            {
+                EventID: "EVT003",
+                EventName: "Wedding Extravaganza",
+                Location: "Grand Ballroom",
+                StartDate: "2025-09-10T12:00:00Z",
+                EndDate: "2025-09-10T23:00:00Z",
+                NoOfPeople: 150,
+                CustomerID: "CMT003",
+                EventTypeID: "EVT001"
+            },
+            {
+                EventID: "EVT004",
+                EventName: "Art Gallery Opening",
+                Location: "City Art Museum",
+                StartDate: "2025-10-05T14:00:00Z",
+                EndDate: "2025-10-05T20:00:00Z",
+                NoOfPeople: 100,
+                CustomerID: "CMT004",
+                EventTypeID: "EVT004"
+            }
+        ];
+
+        // Function to dynamically generate event cards
+        function displayFeaturedEvents() {
+            const container = document.getElementById('event-cards-container');
+            featuredEvents.forEach(event => {
+                const card = document.createElement('div');
+                card.className = 'event-card';
+                card.innerHTML = `
+                    <img src="logo.png" alt="${event.EventName}">
+                    <h3>${event.EventName}</h3>
+                    <p><strong>Location:</strong> ${event.Location}</p>
+                    <p><strong>Dates:</strong> ${new Date(event.StartDate).toLocaleDateString()} - ${new Date(event.EndDate).toLocaleDateString()}</p>
+                    <p><strong>Capacity:</strong> ${event.NoOfPeople} people</p>
+                    <button class="book-event-btn" onclick="bookEvent('${encodeURIComponent(JSON.stringify(event))}')">Book Event</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Function to handle booking an event
+        function bookEvent(eventData) {
+            // Decode the event data
+            const event = JSON.parse(decodeURIComponent(eventData));
+            // Store the event data in sessionStorage
+            sessionStorage.setItem('pre-filled-event', JSON.stringify(event));
+            // Redirect to the events.html page
+            window.location.href = 'events.html';
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', displayFeaturedEvents);
+    </script>
+</body>
+</html>

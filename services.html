@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css ">
+    <title>Showman House - Services</title>
+    <link rel="stylesheet" href="css/homestyles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Showman House Logo" class="logo">
+            <h1>Showman House</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="featured-events.html">Featured Events</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html">Login/Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="services-section">
+            <h2>Our Premium Services</h2>
+            <p>We specialize in creating extraordinary events with a touch of luxury and perfection.</p>
+            <div class="services-container" id="services-container">
+                <!-- Service cards will be dynamically generated here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Showman House. All rights reserved.</p>
+    </footer>
+    <script>
+        // Sample services data (replace this with actual data from the server if needed)
+        const services = [
+            {
+                title: "Wedding Planning",
+                description: "Your dream wedding planned to perfection. From intimate ceremonies to grand celebrations, we handle every detail.",
+                icon: "fa-solid fa-heart"
+            },
+            {
+                title: "Corporate Events",
+                description: "Professional event management for conferences, team-building activities, and corporate celebrations.",
+                icon: "fa-solid fa-briefcase"
+            },
+            {
+                title: "Luxury Retreats & Gala Dinners",
+                description: "Experience high-end corporate retreats and elegant gala dinners, carefully curated for a sophisticated audience.",
+                icon: "fa-solid fa-glass-champagne"
+            },
+            {
+                title: "Event Branding & Design",
+                description: "From logos to full-scale event branding, we craft visually stunning and cohesive event themes.",
+                icon: "fa-solid fa-palette"
+            },
+            {
+                title: "Concert & Festival Planning",
+                description: "End-to-end planning for concerts, music festivals, and large-scale entertainment events.",
+                icon: "fa-solid fa-music"
+            },
+            {
+                title: "Destination Events",
+                description: "Host your dream event at a breathtaking location anywhere in the world with our exclusive destination event services.",
+                icon: "fa-solid fa-plane"
+            }
+        ];
+
+        // Function to dynamically generate service cards
+        function displayServices() {
+            const container = document.getElementById('services-container');
+            services.forEach(service => {
+                const card = document.createElement('div');
+                card.className = 'service';
+                card.innerHTML = `
+                    <i class="${service.icon}"></i>
+                    <h3>${service.title}</h3>
+                    <p>${service.description}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', displayServices);
+    </script>
+</body>
+</html>

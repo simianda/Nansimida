@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showman House - Book Event</title>
+    <link rel="stylesheet" href="css/event.css">
+    <style>
+        /* Success Message Styling */
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .success-message.show {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Showman House Logo" class="logo">
+            <h1>Showman House</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="featured-events.html">Featured Events</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Book an Event</h2>
+            <form id="book-event-form">
+                <div class="form-group">
+                    <label for="event-name">Event Name:</label>
+                    <input type="text" id="event-name" placeholder="Enter event name" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" placeholder="Enter location" required>
+                </div>
+                <div class="form-group">
+                    <label for="start-date">Start Date:</label>
+                    <input type="datetime-local" id="start-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="end-date">End Date:</label>
+                    <input type="datetime-local" id="end-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="no-of-guests">Number of Guests:</label>
+                    <input type="number" id="no-of-guests" min="50" placeholder="Minimum 50 guests" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-type">Event Type:</label>
+                    <select id="event-type" required>
+                        <option value="">Select event type</option>
+                        <option value="EVT001">Wedding Planning</option>
+                        <option value="EVT002">Corporate Events</option>
+                        <option value="EVT003">Luxury Retreats & Gala Dinners</option>
+                        <option value="EVT004">Event Branding & Design</option>
+                        <option value="EVT005">Concert & Festival Planning</option>
+                        <option value="EVT006">Destination Events</option>
+                    </select>
+                </div>
+                <button type="submit">Book Event</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Success Message -->
+    <div id="success-message" class="success-message"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Showman House. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Form Submission -->
+    <script>
+        // Handle form submission
+        document.getElementById('book-event-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Simulate a success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.textContent = 'Event booked successfully!';
+            successMessage.style.display = 'block';
+            successMessage.classList.add('show');
+
+            // Hide the success message after 3 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 300);
+            }, 3000);
+
+            // Reset the form
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
